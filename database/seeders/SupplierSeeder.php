@@ -21,6 +21,7 @@ class SupplierSeeder extends Seeder
             DB::table('suppliers')->insert([
                 'nama' => $faker->firstNameFemale,
                 'telepon' => $faker->phoneNumber,
+                'alamat' => $faker->streetAddress,
             ]);
         }
     }
