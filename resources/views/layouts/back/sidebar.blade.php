@@ -88,6 +88,13 @@
       </li>
 
       <li>
+        <a href="{{route('supplier')}}" class="nav-link text-white">
+          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+          Supplier
+        </a>
+      </li>
+
+      <li>
         <a href="{{route('user')}}" class="nav-link text-white">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
           User

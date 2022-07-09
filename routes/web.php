@@ -24,3 +24,4 @@ Route::post('/', [App\Http\Controllers\produkController::class, 'welcome'])->nam
 Route::get('/admin/dashboard', [App\Http\Controllers\produkController::class, 'dashboard'])->name('dashboard');
 Route::get('/admin/produk', [App\Http\Controllers\produkController::class, 'produk'])->name('produk');
 Route::get('/admin/user', [App\Http\Controllers\userController::class, 'user'])->name('user');
+Route::get('/admin/supplier', [App\Http\Controllers\supplierController::class, 'supplier'])->name('supplier');

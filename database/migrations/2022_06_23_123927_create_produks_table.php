@@ -17,12 +17,15 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('nama_barang');
             $table->unsignedBigInteger('kategori_id')->nullable();
+            $table->unsignedBigInteger('supplier_id')->nullable();
             $table->string('harga');
             $table->string('stok');
             $table->string('keterangan')->nullable();
             $table->string('gambar')->default('default.png');
+            $table->string('refund')->nullable();
             $table->timestamps();
             $table->foreign('kategori_id')->references('id')->on('kategoris')->onDelete('restrict');
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('restrict');
         });
     }
 

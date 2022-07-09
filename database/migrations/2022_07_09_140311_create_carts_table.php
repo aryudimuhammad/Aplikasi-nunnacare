@@ -13,17 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('telepon');
-            $table->string('alamat');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->integer('jumlah_produk')->nullable();
-            $table->rememberToken();
+            $table->unsignedBigInteger('produk_id')->nullable();
+            $table->string('jumlah');
             $table->timestamps();
+            $table->foreign('produk_id')->references('id')->on('produks')->onDelete('restrict');
         });
     }
 
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('carts');
     }
 };

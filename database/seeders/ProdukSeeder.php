@@ -32,6 +32,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Eyeshadow',
                 'kategori_id' => 4,
+                'supplier_id' => 4,
                 'harga' => 35000,
                 'stok' => 12,
                 'keterangan' => $faker->text(200),
@@ -41,6 +42,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Lipstick',
                 'kategori_id' => 4,
+                'supplier_id' => 4,
                 'harga' => 32000,
                 'stok' => 10,
                 'keterangan' => $faker->text(200),
@@ -50,6 +52,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Foundation',
                 'kategori_id' => 4,
+                'supplier_id' => 4,
                 'harga' => 38000,
                 'stok' => 22,
                 'keterangan' => $faker->text(200),
@@ -59,6 +62,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Faceblush',
                 'kategori_id' => 4,
+                'supplier_id' => 4,
                 'harga' => 35000,
                 'stok' => 20,
                 'keterangan' => $faker->text(200),
@@ -68,6 +72,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Eyebrow Pen',
                 'kategori_id' => 4,
+                'supplier_id' => 4,
                 'harga' => 30000,
                 'stok' => 15,
                 'keterangan' => $faker->text(200),
@@ -80,6 +85,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Shower Gel',
                 'kategori_id' => 3,
+                'supplier_id' => 3,
                 'harga' => 45000,
                 'stok' => 17,
                 'keterangan' => $faker->text(200),
@@ -89,6 +95,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Body Lotion',
                 'kategori_id' => 3,
+                'supplier_id' => 3,
                 'harga' => 30000,
                 'stok' => 26,
                 'keterangan' => $faker->text(200),
@@ -98,6 +105,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Body Scrub',
                 'kategori_id' => 3,
+                'supplier_id' => 3,
                 'harga' => 28000,
                 'stok' => 19,
                 'keterangan' => $faker->text(200),
@@ -107,6 +115,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Hand Wash',
                 'kategori_id' => 3,
+                'supplier_id' => 3,
                 'harga' => 25000,
                 'stok' => 29,
                 'keterangan' => $faker->text(200),
@@ -116,6 +125,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Hand Cream',
                 'kategori_id' => 3,
+                'supplier_id' => 3,
                 'harga' => 25000,
                 'stok' => 24,
                 'keterangan' => $faker->text(200),
@@ -128,6 +138,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Shampoo',
                 'kategori_id' => 2,
+                'supplier_id' => 2,
                 'harga' => 35000,
                 'stok' => 19,
                 'keterangan' => $faker->text(200),
@@ -137,6 +148,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Shampoo Brush',
                 'kategori_id' => 2,
+                'supplier_id' => 2,
                 'harga' => 35000,
                 'stok' => 25,
                 'keterangan' => $faker->text(200),
@@ -146,6 +158,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Root Booster Tonic',
                 'kategori_id' => 2,
+                'supplier_id' => 2,
                 'harga' => 40000,
                 'stok' => 15,
                 'keterangan' => $faker->text(200),
@@ -155,6 +168,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Hair Spray',
                 'kategori_id' => 2,
+                'supplier_id' => 2,
                 'harga' => 30000,
                 'stok' => 20,
                 'keterangan' => $faker->text(200),
@@ -164,6 +178,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Hair Wax',
                 'kategori_id' => 2,
+                'supplier_id' => 2,
                 'harga' => 31000,
                 'stok' => 20,
                 'keterangan' => $faker->text(200),
@@ -175,6 +190,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Toner',
                 'kategori_id' => 1,
+                'supplier_id' => 1,
                 'harga' => 41000,
                 'stok' => 34,
                 'keterangan' => $faker->text(200),
@@ -184,6 +200,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Eyeserum',
                 'kategori_id' => 1,
+                'supplier_id' => 1,
                 'harga' => 31000,
                 'stok' => 26,
                 'keterangan' => $faker->text(200),
@@ -193,6 +210,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Sunblock',
                 'kategori_id' => 1,
+                'supplier_id' => 1,
                 'harga' => 26000,
                 'stok' => 31,
                 'keterangan' => $faker->text(200),
@@ -202,6 +220,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Peeling Gel',
                 'kategori_id' => 1,
+                'supplier_id' => 1,
                 'harga' => 30000,
                 'stok' => 28,
                 'keterangan' => $faker->text(200),
@@ -211,6 +230,7 @@ class ProdukSeeder extends Seeder
             DB::table('produks')->insert([
                 'nama_barang' => 'Face Mask',
                 'kategori_id' => 1,
+                'supplier_id' => 1,
                 'harga' => 35000,
                 'stok' => 33,
                 'keterangan' => $faker->text(200),
