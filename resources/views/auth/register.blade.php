@@ -53,6 +53,31 @@
                             </div>
                         </div>
 
+                        <div class="form-floating">
+                                    <input id="telepon" type="number"
+                                        class="form-control @error('telepon') is-invalid @enderror" id="telepon"
+                                        name="telepon" value="{{ old('telepon') }}" required
+                                        autocomplete="telepon">
+                                    <label for="telepon">Nomor Telepon</label>
+                                    @error('telepon')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="form-floating">
+                                    <textarea id="alamat" type="alamat"
+                                        class="form-control @error('alamat') is-invalid @enderror" id="alamat"
+                                        name="alamat" value="{{ old('alamat') }}" required
+                                        autocomplete="alamat"> </textarea>
+                                    <label for="alamat">Alamat</label>
+                                    @error('alamat')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
                         <div class="row mb-3">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 

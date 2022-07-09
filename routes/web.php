@@ -26,3 +26,4 @@ Route::get('/admin/produk', [App\Http\Controllers\produkController::class, 'prod
 Route::get('/admin/user', [App\Http\Controllers\userController::class, 'user'])->name('user');
 Route::get('/admin/supplier', [App\Http\Controllers\supplierController::class, 'supplier'])->name('supplier');
 Route::get('/detail/supplier/{id}', [App\Http\Controllers\supplierController::class, 'detailsupplier'])->name('detailsupplier');
+Route::get('/admin/pesanan', [App\Http\Controllers\pesananController::class, 'pesanan'])->name('pesanan');

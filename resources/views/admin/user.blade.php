@@ -25,24 +25,31 @@
       <div class="container-fluid">
             <div class="card">
               <div class="card-header">
-                 <button style="float: right;" class="btn-primary btn-sm">Tambah Data</button>
+              <button style="float: right;" class="btn btn-outline-info btn-sm">Cetak</button>
+                 <button style="float: right; margin-right:6px;" class="btn btn-outline-primary btn-sm">Tambah Data</button>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Nama User</th>
                     <th>Email</th>
+                    <th>Nama</th>
+                    <th>Telepon</th>
+                    <th>Alamat</th>
+                    <th>Jumlah Produk</th>
                     <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
                 @foreach ($data as $d)
                   <tr>
-                    <td>{{$d->name}}</td>
                     <td>{{$d->email}}</td>
-                    <td><button class="btn btn-sm btn-outline-info" >Detail</button> <button class="btn btn-sm btn-outline-danger" >Hapus</button></td>
+                    <td>{{$d->name}}</td>
+                    <td>{{$d->telepon}}</td>
+                    <td>{{$d->alamat}}</td>
+                    <td>-</td>
+                    <td><button class="btn btn-sm btn-warning" >Edit</button> <button class="btn btn-sm btn-danger" >Hapus</button></td>
                   </tr>
                 @endforeach
                   </tbody>
