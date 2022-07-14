@@ -68,9 +68,12 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('dashboard') }}">
-                            Dashboard Admin
-                        </a>
+                            @if (@auth()->user()->role == 1)
+                            <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                Dashboard Admin
+                            </a>
+                            @else
+                            @endif
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
@@ -115,6 +118,8 @@
                                     </span>
                                 @enderror
                             </div>
+
+
                             <div class="form-floating">
                                 <input id="password" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
@@ -154,6 +159,31 @@
                                         autocomplete="email">
                                     <label for="email">Email Address</label>
                                     @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-floating">
+                                    <input id="telepon" type="number"
+                                        class="form-control @error('telepon') is-invalid @enderror" id="telepon"
+                                        name="telepon" value="{{ old('telepon') }}" required
+                                        autocomplete="telepon">
+                                    <label for="telepon">Nomor Telepon</label>
+                                    @error('telepon')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="form-floating">
+                                    <textarea id="alamat" type="alamat"
+                                        class="form-control @error('alamat') is-invalid @enderror" id="alamat"
+                                        name="alamat" value="{{ old('alamat') }}" required
+                                        autocomplete="alamat"> </textarea>
+                                    <label for="alamat">Alamat</label>
+                                    @error('alamat')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

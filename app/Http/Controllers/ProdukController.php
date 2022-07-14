@@ -48,6 +48,7 @@ class ProdukController extends Controller
 
         }
         $data = Produk::where('id', $id)->first();
+
         return view('welcome.detail', compact('data','carousel','kategori'));
     }
 }

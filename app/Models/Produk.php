@@ -20,5 +20,9 @@ class Produk extends Model
     {
         return $this->belongsTo(Cart::class);
     }
+    public function pesanan()
+    {
+        return $this->belongsTo(Pesanan::class);
+    }
 
 }

@@ -26,10 +26,21 @@ Detail Produk
         </div>
 
         <div class="mt-4">
+            @if(Route::has('login'))
+            @auth
+          <form method="POST" action="{{route('checkout' , ['id' => $data->id])}}">
+            @csrf
+                <input type="text" hidden name="produk_id" value="{{$data->id}}">
+                <input type="text" hidden name="user_id" value="{{ Auth()->user()->id}}">
+                <button type="submit" class="btn btn-primary btn-lg btn-flat">Beli</button>
+            </form>
+        @else
           <div class="btn btn-primary btn-lg btn-flat">
             <i class="fas fa-cart-plus fa-lg mr-2"></i>
             beli
           </div>
+          @endauth
+        @endif
 <!--
           <div class="btn btn-default btn-lg btn-flat">
             <i class="fas fa-heart fa-lg mr-2"></i>

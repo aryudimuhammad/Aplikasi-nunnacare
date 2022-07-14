@@ -57,8 +57,24 @@ Home
                             <div class="d-flex justify-content-between align-items-center">
                                 <small class="text-muted">Rp. {{number_format($d->harga, 0, ',', '.') }},-</small>
                                 <div class="btn-group">
-                                    <a type="button" class="btn btn-sm btn-outline-secondary">Beli</a>
+                                    @if(Route::has('login'))
+                                    @auth
+                                    <form method="POST" action="{{route('cart' , ['id' => $d->id])}}">
+                                        @csrf
+                                        <a type="button" href="{{route('detail' , ['id' => $d->id])}}" class="btn btn-sm btn-outline-secondary">Detail</a>
+                                        <button type="chart" class="btn btn-sm btn-outline-secondary">Cart</button>
+                                    </form>
+                                    <form method="POST" action="{{route('checkout' , ['id' => $d->id])}}">
+                                    @csrf
+                                        <input type="text" hidden name="produk_id" value="{{$d->id}}">
+                                        <input type="text" hidden name="user_id" value="{{ Auth()->user()->id}}">
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Beli</button>
+                                    </form>
+                                    @else
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary">Beli</button>
                                     <a type="button" href="{{route('detail' , ['id' => $d->id])}}" class="btn btn-sm btn-outline-secondary">Detail</a>
+                                    @endauth
+                                    @endif
                                 </div>
                             </div>
                         </div>
