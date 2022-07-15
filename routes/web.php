@@ -22,7 +22,7 @@ Route::get('/detail/{id}', [App\Http\Controllers\produkController::class, 'detai
 
 Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function ()
 {
-Route::post('/checkout/{id}', [App\Http\Controllers\pesananController::class, 'checkout'])->name('checkout');
+Route::post('/indexcheckout', [App\Http\Controllers\pesananController::class, 'indexcheckout'])->name('indexcheckout');
 Route::post('/cart/{id}', [App\Http\Controllers\pesananController::class, 'cart'])->name('cart');
 });
 

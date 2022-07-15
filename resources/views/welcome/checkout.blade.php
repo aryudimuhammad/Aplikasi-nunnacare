@@ -19,7 +19,7 @@ Detail Produk
               <h6 class="my-0">{{$data->nama_barang}}</h6>
               <small class="text-muted">{{$data->kategori->nama_kategori}}</small>
             </div>
-            <form method="POST" action="{{route('checkout' , ['id' => $data->id])}}">
+            <form method="POST" action="{{route('cart' , ['id' => $data->id])}}">
             @csrf
             <span class="text-muted"> <input type="number" style="width: 46px;" name="jumlah_produk" value="{{$result->jumlah_produk}}"> <button class="btn btn-sm btn-primary">+</button> x Rp. {{number_format($data->harga, 0, ',', '.') }},-</span>
             </form>

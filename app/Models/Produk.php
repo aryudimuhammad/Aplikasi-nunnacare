@@ -16,10 +16,6 @@ class Produk extends Model
     {
         return $this->belongsTo(Kategori::class);
     }
-    public function cart()
-    {
-        return $this->belongsTo(Cart::class);
-    }
     public function pesanan()
     {
         return $this->belongsTo(Pesanan::class);

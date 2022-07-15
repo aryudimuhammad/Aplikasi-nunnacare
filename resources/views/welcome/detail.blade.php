@@ -28,7 +28,7 @@ Detail Produk
         <div class="mt-4">
             @if(Route::has('login'))
             @auth
-          <form method="POST" action="{{route('checkout' , ['id' => $data->id])}}">
+            <form method="POST" action="{{route('cart' , ['id' => Auth()->user()->id])}}">
             @csrf
                 <input type="text" hidden name="produk_id" value="{{$data->id}}">
                 <input type="text" hidden name="user_id" value="{{ Auth()->user()->id}}">
