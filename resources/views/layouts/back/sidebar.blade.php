@@ -81,7 +81,7 @@
       </li>
 
       <li>
-        <a href="{{route('pesanan')}}" class="nav-link text-white">
+        <a href="{{route('adminpesanan')}}" class="nav-link text-white">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
           Orders
         </a>

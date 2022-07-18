@@ -5,7 +5,7 @@
 
         <a href="/" class="d-flex  me-lg-5 text-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32">
-                <img src="../logo/logoputih.png" style="width: 40px; height: 42px; margin-right: 15px;" class="img-fluid" alt="image">
+                <img src="{{url('logo/logoputih.png')}}" style="width: 40px; height: 42px; margin-right: 15px;" class="img-fluid" alt="image">
             </svg>
             <span class="fs-4">Nunnacare</span>
         </a>
@@ -33,13 +33,21 @@
 
         @auth
         @if (Route::has('login') && Auth::user()->role == 2 )
-        <div class="d-flex me-lg-3" >
-        <button class="btn btn-sm btn-file" >
+        <div class="d-flex" >
+        <a href="#" class="btn btn-sm btn-file" >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
         </svg>
         <i class="bi bi-cart3"></i> Cart
-        </button>
+        </a>
+        </div>
+        <div class="d-flex me-lg-2" >
+        <a href="{{route('pembayaranlist',['id' => Auth()->user()->id])}}" class="btn btn-sm btn-file">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
+  <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
+</svg>
+        <i class="bi bi-wallet2"></i> Pembayaran
+        </a>
         </div>
         @endif
         @endauth

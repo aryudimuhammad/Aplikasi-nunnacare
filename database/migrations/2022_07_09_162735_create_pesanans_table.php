@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('produk_id')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->integer('jumlah_produk')->nullable();
+            $table->string('notransaksi')->nullable();
             $table->string('metode_pembayaran')->nullable();
             $table->string('estimasi')->nullable();
+            $table->string('harga_total')->nullable();
             $table->integer('status')->nullable();
+            $table->string('ongkir')->nullable();
+            $table->string('bukti')->nullable();
+            $table->string('jadwal_pengiriman')->nullable();
             $table->timestamps();
-            $table->foreign('produk_id')->references('id')->on('produks')->onDelete('restrict');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
         });
     }
 

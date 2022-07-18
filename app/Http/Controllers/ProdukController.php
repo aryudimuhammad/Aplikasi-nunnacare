@@ -35,6 +35,21 @@ class ProdukController extends Controller
         return view('admin.produk', compact('produk'));
     }
 
+    public function detailproduk($id)
+    {
+        $data = Produk::where('id', $id)->first();
+
+        return view('admin.produkdetail', compact('data'));
+    }
+
+    public function deleteproduk($id)
+    {
+        $data = produk::where('id', $id)->first();
+        $data->delete();
+
+        return back()->with('success', 'Data Berhasil Dihapus');
+    }
+
     public function detail(Request $request, $id)
     {
         $carousel = Produk::orderBy('id', 'desc')->paginate(3);

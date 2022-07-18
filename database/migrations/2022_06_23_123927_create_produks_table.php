@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('kategori_id')->nullable();
             $table->unsignedBigInteger('supplier_id')->nullable();
             $table->string('harga');
+            $table->string('masa_berlaku')->nullable();
             $table->string('stok');
             $table->string('keterangan')->nullable();
             $table->string('gambar')->default('default.png');

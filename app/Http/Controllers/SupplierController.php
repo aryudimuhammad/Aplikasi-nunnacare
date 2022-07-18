@@ -14,11 +14,40 @@ class SupplierController extends Controller
 
         return view('admin.supplier',compact('data'));
     }
-    public function detailsupplier($id)
+    public function tambahsupplier(Request $request)
     {
-        $data = Produk::orderBy('id', 'desc')->where('supplier_id', $id)->get();
-        $supplier = Supplier::where('id', $id)->first();
+        $data = new Supplier();
+        $data->nama = $request->nama;
+        $data->telepon = $request->telepon;
+        $data->alamat = $request->alamat;
+        $data->save();
 
-        return view('detail.supplier',compact('data','supplier'));
+        return back()->with('success', 'Data Berhasil Disimpan.');
     }
+    public function deletesupplier($id)
+    {
+        $data = Supplier::where('id', $id)->first();
+        $data->delete();
+
+        return back()->with('success', 'Data Berhasil Dihapus');
+    }
+    public function detailsupplier(Request $request, $id)
+    {
+        $data = Supplier::where('id', $id)->first();
+
+        return view('admin.supplierdetail',compact('data'));
+    }
+
+    public function editsupplier(Request $request, $id)
+    {
+        $data = Supplier::where('id',$id)->first();
+            $data->nama = $request->nama;
+            $data->telepon = $request->telepon;
+            $data->alamat = $request->alamat;
+            $data->update();
+            return back()->with('success', 'Data Berhasil Diubah');
+
+        return back()->with('success', 'Data Berhasil Diubah');
+    }
+
 }

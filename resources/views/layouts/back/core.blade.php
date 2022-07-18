@@ -71,7 +71,7 @@
   <body>
   <section>
     @include('layouts.back.sidebar')
-
+    @include('sweetalert::alert')
     @yield('content')
 
     @include('layouts.back.footer')
@@ -87,6 +87,7 @@
 <script src="../../dist1/js/demo.js"></script>
 <!-- page script -->
 <script src="sidebars.js"></script>
+<script src="{{url('vendor/sweetalert/sweetalert.all.js')}}"></script>
 @yield('script')
   </body>
 </html>

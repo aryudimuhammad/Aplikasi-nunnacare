@@ -12,7 +12,7 @@
 
 
 
-<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{url('dist/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -74,7 +74,7 @@
 <header class="py-3 border-bottom">
 @include('layouts.front.header')
 </header>
-
+@include('sweetalert::alert')
 <main>
 @yield('content')
 </main>
@@ -84,9 +84,9 @@
 </footer>
 
 @yield('script')
-    <script src="../dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url('dist/js/bootstrap.bundle.min.js')}}"></script>
 
     <script src="offcanvas.js"></script>
-
+    <script src="{{url('vendor/sweetalert/sweetalert.all.js')}}"></script>
   </body>
 </html>

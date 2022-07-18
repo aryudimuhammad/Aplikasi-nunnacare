@@ -23,6 +23,15 @@ class UserSeeder extends Seeder
             'alamat' => 'Jln.Ketapi',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('123'),
+            'role' => 1,
+        ]);
+        DB::table('users')->insert([
+            'name' => 'ada',
+            'telepon' => '08387126322',
+            'alamat' => 'Jln.Ketapi2',
+            'email' => 'ada@gmail.com',
+            'role' => 2,
+            'password' => Hash::make('123'),
         ]);
     }
 }
