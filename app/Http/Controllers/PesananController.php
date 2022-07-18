@@ -69,7 +69,7 @@ class PesananController extends Controller
     public function pembayaranlist(Request $request , $id)
     {
         $kategori = Kategori::orderBy('id', 'desc')->get();
-        $data = Pesanan::orderby('id', 'desc')->where('status' , '<' , 5)->get();
+        $data = Pesanan::orderby('id', 'desc')->where('status' , '<' , 5)->where('user_id', Auth()->user()->id)->get();
 
         return view('welcome.pembayaranlist', compact('data','kategori'));
     }
@@ -97,6 +97,7 @@ class PesananController extends Controller
 
             if($request->paymentMethod){
                 $notransaksi = new Pesanan();
+                $notransaksi->user_id = $id;
                 $notransaksi->notransaksi = $date . $id;
                 $notransaksi->metode_pembayaran = $request->paymentMethod;
                 $notransaksi->status = 1;

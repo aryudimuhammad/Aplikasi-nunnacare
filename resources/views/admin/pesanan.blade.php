@@ -33,6 +33,7 @@
                   <thead>
                   <tr>
                     <th>No</th>
+                    <th>Customer</th>
                     <th>Notransaksi</th>
                     <th>Metode</th>
                     <th>Status</th>
@@ -45,6 +46,7 @@
                 @foreach ($data as $d)
                   <tr>
                     <td>{{$loop->iteration}}</td>
+                    <td>{{$d->user->name}}</td>
                     <td>{{$d->notransaksi}}</td>
                     <td>{{$d->metode_pembayaran}}</td>
                     @if ($d->status == 1)

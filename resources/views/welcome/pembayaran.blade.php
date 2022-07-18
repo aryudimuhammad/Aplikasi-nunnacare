@@ -232,7 +232,7 @@ Pembayaran
             <td>Harga </td>
             <td> : </td>
             <td> @foreach ($data2 as $d)
-                {{$d->produk->nama_barang}} : Rp.{{number_format($d->produk->harga, 0, ',', '.') }},- .
+                {{$d->produk->nama_barang}} : Rp.{{number_format($d->produk->harga, 0, ',', '.') }} .
             @endforeach</td>
           </tr>
           <tr>

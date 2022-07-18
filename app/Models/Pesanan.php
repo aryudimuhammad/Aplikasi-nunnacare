@@ -12,4 +12,8 @@ class Pesanan extends Model
     {
         return $this->BelongsToMany(Pesanan_detail::class);
     }
+    public function user()
+    {
+        return $this->BelongsTo(User::class);
+    }
 }
