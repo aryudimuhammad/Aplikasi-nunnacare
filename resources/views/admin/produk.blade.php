@@ -47,8 +47,8 @@
                     <td>{{$d->kategori->nama_kategori}}</td>
                     <td>Rp. {{$d->harga}},-</td>
                     <td>{{$d->stok}}</td>
-                    <td><a href="{{route('detailproduk' , ['id' => $d->id])}}" class="btn btn-xs btn-outline-info" >Detail</a>
-                    <button class="delete btn btn-xs btn-outline-danger" data-id="{{$d->id}}"><i class="fas fa-trash"></i> Hapus</button>
+                    <td><a href="{{route('detailproduk' , ['id' => $d->id])}}" class="btn btn-xs btn-info" >Detail</a>
+                    <button class="delete btn btn-xs btn-danger" data-id="{{$d->id}}"><i class="fas fa-trash"></i> Hapus</button>
                     </td>
                   </tr>
                 @endforeach

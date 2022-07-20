@@ -45,9 +45,9 @@
                     <td>{{$d->nama}}</td>
                     <td>{{$d->telepon}}</td>
                     <td>{{$d->alamat}}</td>
-                    <td><a class="btn btn-sm btn-info text-white" href="{{route('detailsupplier' , ['id' => $d->id])}}">Lihat Produk</a>
-                    <a class="btn btn-sm btn-warning text-white" href="{{route('detailsupplier', ['id' => $d->id])}}" >Edit</a>
-                    <button class="delete btn btn-sm btn-danger" data-id="{{$d->id}}"><i class="fas fa-trash"></i> Hapus</button>
+                    <td><a class="btn btn-xs btn-info text-white" href="{{route('detailsupplier' , ['id' => $d->id])}}">Lihat Produk</a>
+                    <a class="btn btn-xs btn-warning text-white" href="{{route('detailsupplier', ['id' => $d->id])}}" >Edit</a>
+                    <button class="delete btn btn-xs btn-danger" data-id="{{$d->id}}"><i class="fas fa-trash"></i> Hapus</button>
                     </td>
                   </tr>
                 @endforeach

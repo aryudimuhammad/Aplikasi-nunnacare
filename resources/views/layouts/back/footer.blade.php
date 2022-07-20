@@ -1,6 +1,6 @@
-<footer class="main-footer" style="margin-left: 1px;">
+<footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <!-- <b>Footer</b> -->
+      <strong>Nunnacare. </strong>
     </div>
-    <strong>Nunnacare. </strong>
   </footer>

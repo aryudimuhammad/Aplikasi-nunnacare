@@ -70,11 +70,11 @@
   </head>
 
   <body>
+      @include('sweetalert::alert')
 
 <header class="py-3 border-bottom">
 @include('layouts.front.header')
 </header>
-@include('sweetalert::alert')
 <main>
 @yield('content')
 </main>
@@ -83,10 +83,9 @@
 @include('layouts.front.footer')
 </footer>
 
+<script src="{{url('dist/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url('vendor/sweetalert/sweetalert.all.js')}}"></script>
+<script src="offcanvas.js"></script>
 @yield('script')
-    <script src="{{url('dist/js/bootstrap.bundle.min.js')}}"></script>
-
-    <script src="offcanvas.js"></script>
-    <script src="{{url('vendor/sweetalert/sweetalert.all.js')}}"></script>
   </body>
 </html>

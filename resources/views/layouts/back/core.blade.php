@@ -8,7 +8,7 @@
     <meta name="generator" content="Hugo 0.98.0">
     <title>@yield('tittle')</title>
     <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url('dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="../../dist1/css/adminlte.min.css">
     <style>
       .bd-placeholder-img {
@@ -74,7 +74,6 @@
     @include('sweetalert::alert')
     @yield('content')
 
-    @include('layouts.back.footer')
   </secti>
   <script src="../dist/js/bootstrap.bundle.min.js"></script>
   <!-- jQuery -->

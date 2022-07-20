@@ -29,13 +29,13 @@ List Pembayaran
             @endif
 
             @if ($d->status == 1)
-            <td><a class="btn btn-sm btn-secondary">Menunggu Verifikasi</a></td>
+            <td><button type="button" class="btn btn-sm btn-secondary" disabled>Menunggu Verifikasi</button></td>
             @elseif ($d->status == 2)
             <td><a href="{{route('pembayaran', ['id' => Auth()->user()->id , 'idn' => $d->notransaksi])}}" class="btn btn-sm btn-primary">Pembayaran</a></td>
             @elseif ($d->status == 3)
-            <td><a class="btn btn-sm btn-outline-secondary">Proses Pengiriman</a></td>
+            <td><button class="btn btn-sm btn-outline-secondary" disabled>Proses Pengiriman</button></td>
             @elseif ($d->status == 4)
-            <td><a class="btn btn-sm btn-outline-warning">Proses Pengiriman</a></td>
+            <td><button disabled class="btn btn-sm btn-outline-warning">Proses Pengiriman</button></td>
             @endif
 
             @if ($d->status == 1)

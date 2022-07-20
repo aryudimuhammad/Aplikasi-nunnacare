@@ -22,7 +22,10 @@ Route::get('/detail/{id}', [App\Http\Controllers\produkController::class, 'detai
 
 Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function ()
 {
+Route::get('/cart/{id}', [App\Http\Controllers\pesananController::class, 'cart'])->name('cart');
 Route::post('/cart/{id}', [App\Http\Controllers\pesananController::class, 'cart'])->name('cart');
+Route::put('/cart/{id}', [App\Http\Controllers\pesananController::class, 'cartjumlah'])->name('cartjumlah');
+Route::delete('/cart/delete/{id}', [App\Http\Controllers\pesananController::class, 'cartdelete'])->name('cartdelete');
 Route::get('/pembayaranlist/{id}', [App\Http\Controllers\pesananController::class, 'pembayaranlist'])->name('pembayaranlist');
 Route::get('/pembayaran/{id}/{idn}', [App\Http\Controllers\pesananController::class, 'pembayaran'])->name('pembayaran');
 Route::get('/pembayaran1/{id}', [App\Http\Controllers\pesananController::class, 'pembayaran1'])->name('pembayaran1');
@@ -51,3 +54,6 @@ Route::get('/admin/pesanan', [App\Http\Controllers\pesananController::class, 'ad
 Route::post('/admin/pesanan/ongkir', [App\Http\Controllers\pesananController::class, 'ongkiradminpesanan'])->name('ongkiradminpesanan');
 Route::post('/admin/pesanan', [App\Http\Controllers\pesananController::class, 'estimasiadminpesanan'])->name('estimasiadminpesanan');
 });
+
+
+Route::get('/cetak/nota', [App\Http\Controllers\CetakController::class, 'nota'])->name('nota');

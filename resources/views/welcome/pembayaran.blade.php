@@ -17,6 +17,16 @@ Pembayaran
             text-align: center;
         }
 
+        table {
+            border-collapse: collapse;
+            width: 66%;
+        }
+
+        td,
+        th {
+            padding-left: 5px;
+        }
+
         .headtext {
             float: right;
             margin-left: 0px;
@@ -57,7 +67,7 @@ Pembayaran
         h5 {
             line-height: 0.3;
         }
-    </style>
+</style>
 @endsection
 @section('content')
     <div class="wrap py-5">
@@ -97,7 +107,7 @@ Pembayaran
                                         <strong class="text-blue-dark">Harga Ongkir</strong> <br>
                                     </div>
                                     <div class="col-6 col-md-6">
-                                        <strong style="margin-left: 250px;" class="text-nowrap text-secondary">Rp. Total</strong>
+                                        <strong style="margin-left: 250px;" class="text-nowrap text-secondary">Rp. {{number_format($data1->ongkir, 0, ',', '.') }},-</strong>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +120,7 @@ Pembayaran
                                         <strong class="text-blue-dark">Total Harga Produk</strong> <br>
                                     </div>
                                     <div class="col-6 col-md-6">
-                                        <strong style="margin-left: 250px;" class="text-nowrap text-secondary">Rp. Total</strong>
+                                        <strong style="margin-left: 250px;" class="text-nowrap text-secondary">Rp. {{$data2->sum('harga')}},-</strong>
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +133,7 @@ Pembayaran
                                         <strong class="text-blue-dark">Total Pembayaran</strong> <br>
                                     </div>
                                     <div class="col-6 col-md-6">
-                                        <strong style="margin-left: 250px;" class="text-nowrap text-secondary">Rp. Total</strong>
+                                        <strong style="margin-left: 250px;" class="text-nowrap text-secondary">Rp. {{number_format($data1->ongkir + $data2->sum('harga'), 0, ',', '.') }},-</strong>
                                     </div>
                                 </div>
                             </div>
@@ -152,6 +162,10 @@ Pembayaran
                                     <div class="col-6 col-md-6">
                                         <strong style="margin-left: 250px;" class="text-nowrap text-secondary"> <input type="file" id="bukti" class="custom-file-input  @error ('bukti') is-invalid @enderror" name="bukti" value="{{old('bukti')}}" required></strong>
                                         <input type="text" value="{{$data1->id}}" hidden name="id">
+                                        @foreach ($data2 as $d)
+                                        <input type="text" value="{{$d->produk_id}}" hidden name="produk_id">
+                                        <input type="text" value="{{$d->jumlah_produk}}" hidden name="jumlah">
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -263,6 +277,10 @@ Pembayaran
         <div class="notice"><b>Note :</b><small> Apabila Barang Rusak Karena Proses Pengiriman diluar tanggung jawab kami.</small></div>
       </div>
 </div>
+<form method="get" action="{{route('nota')}}">
+    <input type="text" value="{{$data1->notransaksi}}" hidden name="notransaksi">
+<button type="submit" class="btn btn-primary" style="float:right;">Cetak</button>
+</form>
 
         @elseif ($data->status == 4)
         <div class="row d-lg-flex justify-content-center">

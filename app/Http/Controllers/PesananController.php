@@ -9,10 +9,7 @@ use App\Models\Produk;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use ImageResize;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Date;
-use Symfony\Component\Translation\Dumper\YamlFileDumper;
+use Illuminate\Support\Facades\DB;
 
 class PesananController extends Controller
 {
@@ -30,13 +27,7 @@ class PesananController extends Controller
             $result->user_id = $request->user_id;
             $result->jumlah_produk = 1;
             $result->save();
-        } elseif($request->jumlah_produk) {
-            $result = Pesanan_detail::where('produk_id', $request->produk_id)->whereNull('status')->whereNull('notransaksi')->first();
-            $result->jumlah_produk = $request->jumlah_produk;
-            $result->update();
         } else{
-
-
             if($result->notransaksi == null && $result->status == null){
                 $result = Pesanan_detail::where('produk_id', $request->produk_id)->where('user_id', $id)->whereNull('status')->whereNull('notransaksi')->first();
                 $result->jumlah_produk = $result->jumlah_produk + 1;
@@ -49,18 +40,39 @@ class PesananController extends Controller
                 $result->jumlah_produk = 1;
                 $result->save();
             }
-
         }
 
         $data1 = Pesanan_detail::where('user_id', $id)->whereNull('notransaksi')->get();
+        $data1->map(function($item){
+            $harga = $item->produk->harga;
+            $jumlah = $item->jumlah_produk;
+
+            $item['harga'] = $harga * $jumlah;
+
+            return $item;
+        });
+
         $data2 = Pesanan_detail::where('user_id', $id)->whereNull('notransaksi')->first();
 
         return view('welcome.cart', compact('data','kategori','result','data1','data2','date'));
     }
 
-    public function cartdelete($id,$idp)
+    public function cartjumlah(Request $request , $id)
     {
-        $data = Pesanan::where('user_id', $id)->where('id', $idp)->first();
+        $data = Pesanan_detail::where('user_id' , $id)->where('produk_id', $request->id)->first();
+        if($request->jumlah < $data->produk->stok){
+        $data->jumlah_produk = $request->jumlah;
+        $data->update();
+
+        return back()->with('success', 'Jumlah Produk Berhasil Diubah');
+        }else{
+        return back()->with('warning', 'Jumlah Produk Melebihi Stok');
+        }
+    }
+
+    public function cartdelete(Request $request,$id)
+    {
+        $data = Pesanan_detail::where('id', $request->id)->first();
         $data->delete();
 
         return back()->with('success', 'Data Berhasil Dihapus');
@@ -79,6 +91,14 @@ class PesananController extends Controller
 
         $data1 = Pesanan::where('notransaksi', $idn)->first();
         $data2 = Pesanan_detail::where('notransaksi', $idn)->get();
+        $data2->map(function($item){
+            $harga = $item->produk->harga;
+            $jumlah = $item->jumlah_produk;
+
+            $item['harga'] = $harga * $jumlah;
+
+            return $item;
+        });
 
         return view('welcome.pembayaran', compact('kategori','data1','data2'));
     }
@@ -126,6 +146,14 @@ class PesananController extends Controller
             $data->status = 3;
             $data->update();
         }
+
+        $data1 = Produk::select('id','stok')->find($request->produk_id);
+        // dd($data1);
+        $data1->stok = $data1->stok - $request->jumlah;
+        $data1->update();
+        // $dataproduk = Produk::where('id' , $request->produk_id)->get();
+        // $datadetail = Pesanan_detail::where('produk_id' , $request->produk_id)->firstorfail();
+        // Produk::join('Pesanan_details', 'Pesanan_details.produk_id', '=', 'Produks.id')->update(['stok' => $dataproduk->stok - $datadetail->jumlah_produk]);
 
 
         return back()->with('success', 'Data Berhasil Dikirim');

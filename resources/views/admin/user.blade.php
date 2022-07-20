@@ -49,7 +49,7 @@
                     <td>{{$d->telepon}}</td>
                     <td>{{$d->alamat}}</td>
                     <td>-</td>
-                    <td><button class="btn btn-sm btn-warning" >Edit</button> <button class="btn btn-sm btn-danger" >Hapus</button></td>
+                    <td><button class="btn btn-xs btn-warning" >Edit</button> <button class="btn btn-xs btn-danger" >Hapus</button></td>
                   </tr>
                 @endforeach
                   </tbody>
