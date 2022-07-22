@@ -35,8 +35,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 4,
                 'harga' => 35000,
                 'stok' => 12,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/eyeshadow1.jpg',
+                'gambar' => 'post-image/eyeshadow1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -45,8 +46,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 4,
                 'harga' => 32000,
                 'stok' => 10,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/lipstick1.jpg',
+                'gambar' => 'post-image/lipstick1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -55,8 +57,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 4,
                 'harga' => 38000,
                 'stok' => 22,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/foundation1.jpg',
+                'gambar' => 'post-image/foundation1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -65,8 +68,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 4,
                 'harga' => 35000,
                 'stok' => 20,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/faceblush1.jpg',
+                'gambar' => 'post-image/faceblush1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -75,8 +79,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 4,
                 'harga' => 30000,
                 'stok' => 15,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/eyebrow1.jpg',
+                'gambar' => 'post-image/eyebrow1.jpg',
             ]);
 
 
@@ -88,8 +93,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 3,
                 'harga' => 45000,
                 'stok' => 17,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/showergel1.jpg',
+                'gambar' => 'post-image/showergel1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -98,8 +104,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 3,
                 'harga' => 30000,
                 'stok' => 26,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/bodylotion1.jpg',
+                'gambar' => 'post-image/bodylotion1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -108,8 +115,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 3,
                 'harga' => 28000,
                 'stok' => 19,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/bodyscrub1.jpg',
+                'gambar' => 'post-image/bodyscrub1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -118,8 +126,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 3,
                 'harga' => 25000,
                 'stok' => 29,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/handwash1.jpg',
+                'gambar' => 'post-image/handwash1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -128,8 +137,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 3,
                 'harga' => 25000,
                 'stok' => 24,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/handcream1.jpg',
+                'gambar' => 'post-image/handcream1.jpg',
             ]);
 
             //hair
@@ -141,8 +151,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 2,
                 'harga' => 35000,
                 'stok' => 19,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/shampoo1.jpg',
+                'gambar' => 'post-image/shampoo1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -151,8 +162,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 2,
                 'harga' => 35000,
                 'stok' => 25,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/shampoobrush1.jpg',
+                'gambar' => 'post-image/shampoobrush1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -161,8 +173,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 2,
                 'harga' => 40000,
                 'stok' => 15,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/rootboostertonic1.jpg',
+                'gambar' => 'post-image/rootboostertonic1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -171,8 +184,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 2,
                 'harga' => 30000,
                 'stok' => 20,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/hairspray1.jpg',
+                'gambar' => 'post-image/hairspray1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -181,8 +195,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 2,
                 'harga' => 31000,
                 'stok' => 20,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/hairwax1.jpg',
+                'gambar' => 'post-image/hairwax1.jpg',
             ]);
 
             //skincare
@@ -193,8 +208,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 1,
                 'harga' => 41000,
                 'stok' => 34,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/toner1.jpg',
+                'gambar' => 'post-image/toner1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -203,8 +219,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 1,
                 'harga' => 31000,
                 'stok' => 26,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/eyeserum1.jpg',
+                'gambar' => 'post-image/eyeserum1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -213,8 +230,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 1,
                 'harga' => 26000,
                 'stok' => 31,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/sunblock1.jpg',
+                'gambar' => 'post-image/sunblock1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -223,8 +241,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 1,
                 'harga' => 30000,
                 'stok' => 28,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/peelinggel1.jpg',
+                'gambar' => 'post-image/peelinggel1.jpg',
             ]);
 
             DB::table('produks')->insert([
@@ -233,8 +252,9 @@ class ProdukSeeder extends Seeder
                 'supplier_id' => 1,
                 'harga' => 35000,
                 'stok' => 33,
+                'masa_berlaku' => $faker->date('2023-m-d'),
                 'keterangan' => $faker->text(200),
-                'gambar' => 'produk/facemask1.jpg',
+                'gambar' => 'post-image/facemask1.jpg',
             ]);
         }
 }

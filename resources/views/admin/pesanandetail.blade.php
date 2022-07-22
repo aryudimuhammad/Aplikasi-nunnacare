@@ -1,8 +1,8 @@
 @extends('layouts.back.core')
-@section('tittle') Pesanan @endsection
+@section('tittle') Pesanan Detail @endsection
 @section('head')
-  <link rel="stylesheet" href="{{url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
-  <link rel="stylesheet" href="{{url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 @endsection
 @section('content')
 
@@ -11,11 +11,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Pesanan</h1>
+            <h1>Cart Belanja {{$data->name}}</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Pesanan</a></li>
+              <li class="breadcrumb-item"><a href="#">Detail</a></li>
             </ol>
           </div>
         </div>
@@ -25,13 +26,7 @@
       <div class="container-fluid">
             <div class="card">
               <div class="card-header">
-                <!-- <a style="float: right; margin-left: 8px;" href="{{route('cetakkeuangan')}}" class="btn btn-sm btn-outline-info">Keuangan</a> -->
-                <button style="float: right; margin-left: 8px;" data-bs-toggle="modal" data-bs-target="#cetakModal" href="{{route('cetakkeuangan')}}" class="btn btn-sm btn-outline-info">Keuangan</button>
-                <a style="float: right; margin-left: 8px;" href="{{route('cetakbarangtransaksi')}}" class="btn btn-sm btn-outline-info">Transaksi</a>
-                <a style="float: right; margin-left: 8px;" href="{{route('cetakbarangtidaklaris')}}" class="btn btn-sm btn-outline-info">Barang Kurang Laris</a>
-                <a style="float: right; margin-left: 8px;" href="{{route('cetakbaranglaris')}}" class="btn btn-sm btn-outline-info">Barang Laris</a>
-                <a style="float: right; margin-left: 8px;" href="{{route('cetakpesanankiriman')}}" class="btn btn-sm btn-outline-info">Pesanan Dikirim</a>
-                <a style="float: right; margin-left: 8px;" href="{{route('cetakpesananditerima')}}" class="btn btn-sm btn-outline-info">Pesanan Diterima</a>
+                <a style="float: right; margin-left: 8px;" href="{{route('adminpesanan')}}" class="btn btn-sm btn-outline-danger">Kembali</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -39,58 +34,22 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Customer</th>
-                    <th>Notransaksi</th>
-                    <th>Metode</th>
-                    <th>Status</th>
-                    <th>Ongkir</th>
-                    <th>Bukti</th>
-                    <th>Aksi</th>
+                    <th>Nama Produk</th>
+                    <th>Kategori</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Ketersediaan</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($data as $d)
+                @foreach ($data1 as $d)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$d->user->name}}</td>
-                    <td>{{$d->notransaksi}}</td>
-                    <td>{{$d->metode_pembayaran}}</td>
-                    @if ($d->status == 1)
-                    <td> <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#closeModal">Verifikasi</button></td>
-                    @elseif ($d->status == 2)
-                    <td><button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#tunggubayarModal">Terverifikasi</button></td>
-                    @elseif ($d->status == 3)
-                    <td><button class="btn btn-sm btn-outline-danger" data-id="{{$d->id}}" data-bs-toggle="modal" data-bs-target="#ongkirModal">Barang Perlu Dikirim</button></td>
-                    @elseif ($d->status == 4)
-                    <td><button class="btn btn-sm btn-outline-info">Proses Dikirim</button></td>
-                    @else
-                    <td><button class="btn btn-sm btn-secondary">Terjual</button></td>
-                    @endif
-
-
-                    @if ($d->ongkir == null)
-                    <td><button type="button" class="btn btn-primary btn-sm" data-id="{{$d->id}}" data-bs-toggle="modal"  data-bs-target="#exampleModal">Ongkir</button</td>
-                    @else
-                    <td>Rp.{{number_format($d->ongkir, 0, ',', '.') }},-</td>
-                    @endif
-
-
-                    @if ($d->bukti == null)
-                        <td>-</td>
-                        @else
-                        <td><img src="{{asset('storage/' . $d->bukti)}}" class="product-image" alt="Product Image"></td>
-                    @endif
-
-                    <td>
-                        <a href="{{route('cetakcart',['id' => $d->notransaksi , 'idu' => $d->user_id])}}" class="btn btn-xs btn-warning text-white">Cetak</a>
-                        <form action="{{route('adminpesanandetail',['id' => $d->notransaksi , 'idu' => $d->user_id])}}">
-                        <button type="submit" class="btn btn-xs btn-info">Detail</button>
-                        </form>
-                        <form method="POST" action="{{route('adminpesanandelete',['id' => $d->id])}}">
-                            {{method_field('DELETE')}}
-                            @csrf
-                        <button class="btn btn-xs btn-danger" data-id="{{$d->id}}"><i class="fas fa-trash"></i> Hapus</button>
-                        </form>
+                    <td>{{$d->produk->nama_barang}}</td>
+                    <td>{{$d->produk->kategori->nama_kategori}}</td>
+                    <td>{{$d->produk->harga}}</td>
+                    <td>{{$d->jumlah_produk}} Qty</td>
+                    <td>{{$d->produk->stok}} Qty</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -113,41 +72,7 @@
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="cetakModal" tabindex="-1" aria-labelledby="cetakModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="cetakModalLabel">Pilih Tanggal</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-            <div class="modal-body">
-                <form method="get" action="{{route('cetakkeuangan')}}" target="_blank">
-                    {{ method_field('put') }}
-                    @csrf
-                    <div class=" modal-body">
-                        <div class="form-group">
-                            <label for="start">Dari Tanggal</label>
-                            <input type="date" class="form-control" name="start" id="start" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="end">Sampai Tanggal</label>
-                            <input type="date" class="form-control" name="end" id="end" required>
-                        </div>
-                    </div>
-                    <div class="edit modal-footer">
-                        <button type="button" class="btn btn-secondary text-white" data-dismiss="modal">Close</button>
-                        <button type="submit" class="edit btn btn-primary"> <i class="feather icon-printer"></i> Cetak</button>
-                    </div>
-                </form>
-            </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-  </div>
-</div>
+
 
 
 
@@ -258,56 +183,10 @@
 @endsection
 @section('script')
 
-<script src="{{url('plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{url('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{url('plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{url('plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-
-
-<script>
-    $(document).on('click', '.delete', function(e) {
-        e.preventDefault();
-        var id = $(this).data('id');
-        swal.fire({
-            title: "Apakah anda yakin?",
-            icon: "warning",
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: "Ya",
-            cancelButtonText: "Tidak",
-            showCancelButton: true,
-        }).then((result) => {
-            if (result.value) {
-                $.ajax({
-                    url: "{{ url('/admin/pesanan/delete')}}" + '/' + id,
-                    type: "POST",
-                    data: {
-                        '_method': 'DELETE',
-                        "_token": "{{ csrf_token() }}"
-                    },
-                    success: function(response) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Data Berhasil Dihapus',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        setTimeout(function() {
-                            document.location.reload(true);
-                        }, 1000);
-                    },
-                })
-            } else if (result.dismiss === swal.DismissReason.cancel) {
-                Swal.fire(
-                    'Dibatalkan',
-                    'data batal dihapus',
-                    'error'
-                )
-            }
-        })
-    });
-</script>
-
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
 <script>
   $(function () {
@@ -346,5 +225,4 @@
         modal.find('.modal-body #id').val(id)
     })
 </script>
-
 @endsection

@@ -20,7 +20,7 @@ Home
             @foreach($carousel as $d)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }} data-bs-interval="
                     10000">
-                    <img src="{{ $d->gambar }}" class="d-block w-100" alt="...">
+                    <img src="{{asset('storage/' . $d->gambar)}}" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>{{ $d->nama_barang }}</h5>
                         <p>{{ $d->keterangan }}</p>
@@ -50,7 +50,7 @@ Home
             @foreach($produk as $d)
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img src="{{$d->gambar}}" alt="gambar">
+                        <img src="{{asset('storage/' . $d->gambar)}}" alt="gambar">
                         <div class="card-body">
                             <h1>{{ $d->nama_barang }}</h1>
                             <p class="card-text">{{$d->keterangan}}</p>

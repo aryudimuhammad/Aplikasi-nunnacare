@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('notransaksi')->nullable();
             $table->string('metode_pembayaran')->nullable();
             $table->string('estimasi')->nullable();
-            $table->string('harga_total')->nullable();
             $table->integer('status')->nullable();
             $table->string('ongkir')->nullable();
             $table->string('bukti')->nullable();

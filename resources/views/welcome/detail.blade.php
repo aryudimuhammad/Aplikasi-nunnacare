@@ -10,7 +10,7 @@ Detail Produk
       <div class="col-12 col-sm-6">
         <h3 class="d-inline-block d-sm-none">{{$data->nama_barang}}</h3>
         <div class="col-12">
-          <img src="../{{$data->gambar}}" class="product-image" alt="Product Image" style="width:400px; height:400px;"  >
+          <img src="{{asset('storage/' . $data->gambar)}}" class="product-image" alt="Product Image" style="width:400px; height:400px;"  >
         </div>
       </div>
       <div class="col-12 col-sm-6">

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use App\Models\Produk;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class ProdukController extends Controller
@@ -32,7 +34,50 @@ class ProdukController extends Controller
     public function produk(Request $request)
     {
         $produk = Produk::orderBy('id', 'desc')->get();
-        return view('admin.produk', compact('produk'));
+        $supplier = Supplier::orderby('id','desc')->get();
+        $kategori = Kategori::orderby('id','desc')->get();
+
+        return view('admin.produk', compact('produk','supplier','kategori'));
+    }
+
+    public function tambahproduk(Request $request){
+        $data = new Produk();
+        $data->nama_barang = $request->nama;
+        $data->kategori_id = $request->kategori;
+        $data->supplier_id = $request->supplier;
+        $data->harga = $request->harga;
+        $data->masa_berlaku = $request->berlaku;
+        $data->stok = $request->stok;
+        $data->keterangan = $request->keterangan;
+        // if ($request->gambar) {
+        //     $img = $request->file('gambar');
+        //     $FotoExt = $img->getClientOriginalExtension();
+        //     $FotoName = $date . $request->nama;
+        //     $gambar = $FotoName . '.' . $FotoExt;
+        //     $img->move('produk/', $gambar);
+        //     $data->gambar = $gambar;
+        // }
+        $data->gambar = $request->file('gambar')->store('post-image');
+        $data->save();
+
+        return back()->with('success', 'Data Berhasil Disimpan.');
+    }
+
+    public function editproduk(Request $request){
+        $data = Produk::find($request->id);
+        $data->nama_barang = $request->nama;
+        $data->kategori_id = $request->kategori;
+        $data->supplier_id = $request->supplier;
+        $data->harga = $request->harga;
+        $data->masa_berlaku = $request->berlaku;
+        $data->stok = $request->stok;
+        $data->keterangan = $request->keterangan;
+        if($request->gambar){
+        $data->gambar = $request->file('gambar')->store('post-image');
+        }
+        $data->update();
+
+        return back()->with('success', 'Data Berhasil Diubah.');
     }
 
     public function detailproduk($id)

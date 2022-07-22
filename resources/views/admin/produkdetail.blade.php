@@ -34,13 +34,14 @@
       <div class="col-12 col-sm-6">
         <h3 class="d-inline-block d-sm-none">{{$data->nama_barang}}</h3>
         <div class="col-12">
-          <img src="../../{{$data->gambar}}" class="product-image" alt="Product Image">
+          <img src="{{asset('storage/' . $data->gambar)}}" class="product-image" alt="Product Image">
         </div>
       </div>
       <div class="col-12 col-sm-6">
         <h3 class="my-3">{{$data->nama_barang}}</h3>
         <h5>Supllier : {{$data->supplier->nama}}</h5>
         <h5>Kategori : {{$data->kategori->nama_kategori}}</h5>
+        <h5>Masa Berlaku : {{$data->masa_berlaku}}</h5>
         <h5>Stok : {{$data->stok}}</h5>
         <hr>
 

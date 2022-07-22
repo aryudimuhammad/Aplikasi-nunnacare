@@ -42,17 +42,42 @@ Route::get('/admin/dashboard', [App\Http\Controllers\produkController::class, 'd
 Route::get('/admin/produk', [App\Http\Controllers\produkController::class, 'produk'])->name('produk');
 Route::delete('/admin/produk/{id}', [App\Http\Controllers\produkController::class, 'deleteproduk'])->name('deleteproduk');
 Route::get('/admin/detailproduk/{id}', [App\Http\Controllers\produkController::class, 'detailproduk'])->name('detailproduk');
+Route::post('/admin/produk', [App\Http\Controllers\produkController::class, 'tambahproduk'])->name('tambahproduk');
+Route::put('/admin/produk', [App2\Http\Controllers\produkController::class, 'editproduk'])->name('editproduk');
+Route::get('/admin/produk/cetak', [App\Http\Controllers\cetakController::class, 'cetakproduk'])->name('cetakproduk');
 
 
 Route::get('/admin/user', [App\Http\Controllers\userController::class, 'user'])->name('user');
+Route::post('/admin/user', [App\Http\Controllers\userController::class, 'useredit'])->name('useredit');
+Route::put('/admin/user}', [App\Http\Controllers\userController::class, 'usertambah'])->name('usertambah');
+Route::delete('/admin/user/{id}', [App\Http\Controllers\userController::class, 'userdelete'])->name('userdelete');
+Route::get('/admin/user/cetak', [App\Http\Controllers\cetakController::class, 'usercetak'])->name('usercetak');
+Route::get('/admin/user/cetaksatuan/{id}', [App\Http\Controllers\cetakController::class, 'usercetak1'])->name('usercetak1');
+
+
 Route::get('/admin/supplier', [App\Http\Controllers\supplierController::class, 'supplier'])->name('supplier');
 Route::post('/admin/supplier', [App\Http\Controllers\supplierController::class, 'tambahsupplier'])->name('tambahsupplier');
 Route::delete('/admin/supplier/{id}', [App\Http\Controllers\supplierController::class, 'deletesupplier'])->name('deletesupplier');
+Route::get('/edit/supplier/{id}', [App\Http\Controllers\supplierController::class, 'editsupplier'])->name('editsupplier');
+Route::post('/edit/supplier/{id}', [App\Http\Controllers\supplierController::class, 'aksieditsupplier'])->name('aksieditsupplier');
 Route::get('/detail/supplier/{id}', [App\Http\Controllers\supplierController::class, 'detailsupplier'])->name('detailsupplier');
-Route::put('/edit/detail/supplier/{id}', [App\Http\Controllers\supplierController::class, 'editsupplier'])->name('editsupplier');
+Route::post('/detail/supplier/{id}', [App\Http\Controllers\supplierController::class, 'refundsupplier'])->name('refundsupplier');
+Route::get('/admin/supplier/cetak', [App\Http\Controllers\cetakController::class, 'cetaksupplier'])->name('cetaksupplier');
+Route::get('/admin/supplier/cetak1/{id}', [App\Http\Controllers\cetakController::class, 'cetaksupplier1'])->name('cetaksupplier1');
+
+
 Route::get('/admin/pesanan', [App\Http\Controllers\pesananController::class, 'adminpesanan'])->name('adminpesanan');
 Route::post('/admin/pesanan/ongkir', [App\Http\Controllers\pesananController::class, 'ongkiradminpesanan'])->name('ongkiradminpesanan');
 Route::post('/admin/pesanan', [App\Http\Controllers\pesananController::class, 'estimasiadminpesanan'])->name('estimasiadminpesanan');
+Route::delete('/admin/pesanan/delete/{id}', [App\Http\Controllers\pesananController::class, 'adminpesanandelete'])->name('adminpesanandelete');
+Route::get('/admin/pesanan/detail/{id}/{idu}', [App\Http\Controllers\pesananController::class, 'adminpesanandetail'])->name('adminpesanandetail');
+Route::get('/admin/pesanan/cetakkiriman', [App\Http\Controllers\cetakController::class, 'cetakpesanankiriman'])->name('cetakpesanankiriman');
+Route::get('/admin/pesanan/cetakkirimanditerima', [App\Http\Controllers\cetakController::class, 'cetakpesananditerima'])->name('cetakpesananditerima');
+Route::get('/admin/pesanan/cetakbaranglaris', [App\Http\Controllers\cetakController::class, 'cetakbaranglaris'])->name('cetakbaranglaris');
+Route::get('/admin/pesanan/cetakbarangtidaklaris', [App\Http\Controllers\cetakController::class, 'cetakbarangtidaklaris'])->name('cetakbarangtidaklaris');
+Route::get('/admin/pesanan/cetakbarangtransaksi', [App\Http\Controllers\cetakController::class, 'cetakbarangtransaksi'])->name('cetakbarangtransaksi');
+Route::get('/admin/pesanan/cetakcart/{id}/{idu}', [App\Http\Controllers\cetakController::class, 'cetakcart'])->name('cetakcart');
+Route::get('/admin/pesanan/cetakkeuangan', [App\Http\Controllers\cetakController::class, 'cetakkeuangan'])->name('cetakkeuangan');
 });
 
 

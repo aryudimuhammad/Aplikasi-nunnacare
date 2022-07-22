@@ -136,16 +136,10 @@ class PesananController extends Controller
     {
         $date = Carbon::now()->format('Ymd');
         $data = Pesanan::find($request->id);
-        if ($request->bukti != null) {
-            $img = $request->file('bukti');
-            $FotoExt = $img->getClientOriginalExtension();
-            $FotoName = $date . $request->id;
-            $bukti = $FotoName . '.' . $FotoExt;
-            $img->move('images/bukti', $bukti);
-            $data->bukti = $bukti;
-            $data->status = 3;
-            $data->update();
+            if($request->bukti){
+        $data->bukti = $request->file('bukti')->store('post-image');
         }
+        $data->update();
 
         $data1 = Produk::select('id','stok')->find($request->produk_id);
         // dd($data1);
@@ -177,11 +171,27 @@ class PesananController extends Controller
 
 
 
+    public function adminpesanandelete($id)
+    {
+        $data = Pesanan::where('id', $id)->first();
+        $data->delete();
+
+        return back()->with('success', 'Data Berhasil Dihapus');
+    }
+
     public function adminpesanan()
     {
         $data = Pesanan::orderBy('status','asc')->get();
 
         return view('admin.pesanan', compact('data'));
+    }
+
+    public function adminpesanandetail($id,$idu)
+    {
+        $data = User::where('id',$idu)->first();
+        $data1 = Pesanan_detail::orderBy('id','asc')->where('notransaksi',$id)->where('status',1)->get();
+
+        return view('admin.pesanandetail', compact('data','data1'));
     }
 
     public function ongkiradminpesanan(Request $request)

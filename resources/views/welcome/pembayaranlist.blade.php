@@ -13,7 +13,6 @@ List Pembayaran
             <th scope="col">Metode Pembayaran</th>
             <th scope="col">Estimasi</th>
             <th scope="col">Status</th>
-            <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -39,9 +38,7 @@ List Pembayaran
             @endif
 
             @if ($d->status == 1)
-            <td><button class="btn btn-sm btn-danger">Cancel</i></button></td>
             @elseif ($d->status == 2)
-            <td><button class="btn btn-sm btn-danger">Cancel</i></button></td>
             @elseif ($d->status == 3)
             <td><a class="btn btn-sm btn-outline-primary" href="{{route('pembayaran',['id' => Auth()->user()->id ,'idn' => $d->notransaksi])}}">Lihat</i></button></td>
             @elseif ($d->status == 4)
@@ -59,7 +56,6 @@ List Pembayaran
         </div>
     </div>
 @endsection
-
 
 
 

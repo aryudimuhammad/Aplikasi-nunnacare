@@ -7,9 +7,9 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.98.0">
     <title>@yield('tittle')</title>
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{url('plugins/fontawesome-free/css/all.min.css')}}">
     <link href="{{url('dist/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="../../dist1/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{url('dist1/css/adminlte.min.css')}}">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -75,15 +75,15 @@
     @yield('content')
 
   </secti>
-  <script src="../dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{url('dist/js/bootstrap.bundle.min.js')}}"></script>
   <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{url('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="../../dist1/js/adminlte.min.js"></script>
+<script src="{{url('dist1/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist1/js/demo.js"></script>
+<script src="{{url('dist1/js/demo.js')}}"></script>
 <!-- page script -->
 <script src="sidebars.js"></script>
 <script src="{{url('vendor/sweetalert/sweetalert.all.js')}}"></script>
